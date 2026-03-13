@@ -69,7 +69,7 @@ def train_model(data):
 
   pipeline = build_pipeline(X_train,LogisticRegression())
 
-  print("\n⚙️Training...")
+  print("\nTraining...")
   pipeline.fit(X_train,y_train)
   y_pred = pipeline.predict(X_test)
   y_prob = pipeline.predict_proba(X_test)[:,1]
@@ -78,10 +78,9 @@ def train_model(data):
   pr_auc_score = auc(recall_vals,precision_vals)
   with open(f"models/trained_model/trained_model_v1_{datetime.now().strftime('%Y-%m-%d')}.pkl","wb") as file:
       joblib.dump(pipeline,file)
-  print("Model Training is Done✅")
+  print("Model Training is Done")
 
   return {
-      "y_prob":y_prob,
       "f1_score":round(f1_score(y_test,y_pred,zero_division=0),4),
       "recall_score":round(recall_score(y_test,y_pred,zero_division=0),4),
       "precision_score":round(precision_score(y_test,y_pred,zero_division=0),4),
@@ -89,7 +88,8 @@ def train_model(data):
   }
 
 if __name__ == "__main__":
-    data = pd.read_csv("dummy_data.csv")
+    #for testing the model efficiency 
+    data = pd.read_csv("sprint_record.csv")
     model_ = train_model(data)
     new_sprint = {
         "team_seniority_ratio": 0.33,
@@ -97,6 +97,5 @@ if __name__ == "__main__":
         "project_type": "Backend",
         "sprint_description": "Migrate legacy user auth to AWS Cognito. High risk of breaking changes.",
     }
-    print(model_)
     model = joblib.load(f"models/trained_model/trained_model_v1_{datetime.now().strftime('%Y-%m-%d')}.pkl")
     print(model.predict_proba(pd.DataFrame([new_sprint]))[:,1])

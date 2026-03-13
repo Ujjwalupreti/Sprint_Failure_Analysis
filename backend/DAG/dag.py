@@ -7,11 +7,10 @@ from airflow.providers.mysql.hooks.mysql import MySqlHook
 from datetime import datetime
 import pandas as pd
 
-project_root = r"C:\Users\Hp\Desktop\VS CODES\TAWS"
+project_root = r""
 if project_root not in sys.path:
     sys.path.append(project_root)
 from models.trainer import train_model
-
 
 @dag(
     dag_id="sprint_failed_script",
