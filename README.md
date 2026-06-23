@@ -17,7 +17,7 @@
 
 * ✅ **Phase 1: ML Pipeline (Completed):** XGBoost classification model and NLP text processing pipeline built, tuned via `GridSearchCV`, and serialized.
 * ✅ **Phase 2: Backend & MLOps (Completed):** FastAPI inference server deployed. Apache Airflow DAGs configured for daily automated data extraction and model retraining.
-* ⏳ **Phase 3: Frontend Dashboard (In Progress):** Currently building the user interface to allow project managers to input sprint metrics and visualize risk factors in real-time.
+* ✅ **Phase 3: Frontend Dashboard (Completed):** Successfully built the user interface allowing project managers to input sprint metrics and visualize risk factors in real-time.
 
 ---
 
@@ -97,4 +97,4 @@ Predicting human performance and software complexity requires a model that can h
 ---
 
 ## 💻 Frontend Interface
-*(Screenshot will be added upon completion of the React dashboard)*
+*(Screenshot will be added soon)*
